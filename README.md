@@ -1,6 +1,6 @@
 # hexagram30/societatis
 
-*An entropy manager, random number generator/seed tracker, and dice-roller for hexagram30 projects*
+*Society generation and evolution for use by hexagram30 projects*
 
 [![][logo]][logo-large]
 
