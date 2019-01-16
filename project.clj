@@ -56,7 +56,19 @@
         [lein-kibit "0.1.6"]]}
     :test {
       :plugins [
-        [lein-ltest "0.3.0"]]}}
+        [lein-ltest "0.3.0"]]}
+    :docs {
+      :dependencies [
+        [hexagram30/codox-theme "0.1.0-SNAPSHOT"]]
+      :plugins [
+        [lein-codox "0.10.3"]]
+      :codox {
+        :project {:name "hexagram30/societatis"}
+        :themes [:hexagram30]
+        :output-path "docs/current"
+        :doc-paths ["resources/markdown"]
+        :namespaces [#"^hxgm30\..*"]
+        :metadata {:doc/format :markdown}}}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"
@@ -82,22 +94,14 @@
     "ltest-clean" ["do"
       ["clean"]
       ["ltest"]]
+    "docs" ["do"
+      ["clean"]
+      ["with-profile" "+docs" "codox"]]
     "build" ["do"
       ["clean"]
       ["check-vers"]
       ["lint"]
       ["ltest" ":all"]
-      ["uberjar"]
-      ["build-cli"]]
-    "clean-cljs" ["with-profile" "+cljs" "do"
-      ["clean"]
-      ["shell" "rm" "-f" "bin/roll"]]
-    "build-cli" ["with-profile" "+cljs" "do"
-      ["cljsbuild" "once" "cli"]
-      ["shell" "chmod" "755" "bin/roll"]]
-    "clean-build-cli" ["with-profile" "+cljs" "do"
-      ["clean-cljs"]
-      ["build-cli"]]
-    ;; Script Aliases
-    "roll" ["run"]})
+      ["ubercompile"]
+      ["uberjar"]]})
 
