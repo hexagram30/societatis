@@ -20,31 +20,10 @@
              (logging/create-component)
              [:config])})
 
-(def rnd
-  {:random (component/using
-            (random/create-component)
-            [:config :logging])})
-
-(def cli-server
-  {:udp (component/using
-         (udp/create-component)
-         [:config :logging :random])})
-
-(def rnd-without-logging
-  {:random (component/using
-            (random/create-component)
-            [:config])})
-
 (defn basic
   [cfg-data]
   (merge (cfg cfg-data)
          log))
-
-(defn main
-  [cfg-data]
-  (merge (basic cfg-data)
-         rnd
-         cli-server))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Initializations   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52,33 +31,22 @@
 
 (defn initialize-bare-bones
   []
-  (-> (config/build-config)
+  (-> (config-lib/data)
       basic
       component/map->SystemMap))
 
-(defn initialize-without-logging
+(defn initialize-config-only
   []
-  (-> (config/build-config)
+  (-> (config-lib/data)
       cfg
-      (merge rnd-without-logging)
-      component/map->SystemMap))
-
-(defn initialize
-  []
-  (-> (config/build-config)
-      main
-      component/map->SystemMap))
+      component/map->SystemMap))=
 
 (def init-lookup
   {:basic #'initialize-bare-bones
-   :cli #'initialize-without-logging
-   :main #'initialize
-   :testing #'initialize-without-logging})
+   :testing #'initialize-config-only})
 
 (defn init
   ([]
-    (init :main))
+    (init :basic))
   ([mode]
     ((mode init-lookup))))
-
-(def cli #(init :cli))
