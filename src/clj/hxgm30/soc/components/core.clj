@@ -1,10 +1,10 @@
-(ns hxgm30.dice.components.core
+(ns hxgm30.soc.components.core
   (:require
     [com.stuartsierra.component :as component]
-    [hxgm30.dice.components.config :as config]
-    [hxgm30.dice.components.logging :as logging]
-    [hxgm30.dice.components.random :as random]
-    [hxgm30.dice.components.udp :as udp]
+    [hxgm30.common.components.config :as common-config]
+    [hxgm30.common.components.logging :as logging]
+    [hxgm30.soc.components.config :as config]
+    [hxgm30.soc.config :as config-lib]
     [taoensso.timbre :as log]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -13,7 +13,7 @@
 
 (defn cfg
   [cfg-data]
-  {:config (config/create-component cfg-data)})
+  {:config (common-config/create-component cfg-data)})
 
 (def log
   {:logging (component/using

@@ -1,4 +1,4 @@
-(ns hxgm30.dice.repl
+(ns hxgm30.soc.repl
   (:require
     [clojure.java.io :as io]
     [clojure.pprint :refer [pprint]]
@@ -7,11 +7,8 @@
     [clojusc.system-manager.core :refer :all]
     [clojusc.twig :as logger]
     [com.stuartsierra.component :as component]
-    [hxgm30.dice.components.config :as config]
-    [hxgm30.dice.components.core]
-    [hxgm30.dice.components.random :as random]
-    [hxgm30.dice.core :as dice]
-    [hxgm30.dice.roller :as roller]
+    [hxgm30.soc.components.config :as config]
+    [hxgm30.soc.components.core]
     [trifl.java :refer [show-methods]])
   (:import
     (java.net URI)
@@ -23,8 +20,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (def setup-options {
-  :init 'hxgm30.dice.components.core/init
-  :after-refresh 'hxgm30.dice.repl/init-and-startup
+  :init 'hxgm30.soc.components.core/init
+  :after-refresh 'hxgm30.soc.repl/init-and-startup
   :throw-errors false})
 
 (defn init

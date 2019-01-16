@@ -1,16 +1,16 @@
-(ns hxgm30.dice.testing.system
+(ns hxgm30.soc.testing.system
   (:require
     [clojusc.system-manager.core :as system-api]
     [clojusc.twig :as logger]
-    [hxgm30.dice.components.config :as config]
-    [hxgm30.dice.components.testing.system]))
+    [hxgm30.soc.components.config :as config]
+    [hxgm30.soc.components.testing.system]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Setup and Constants   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (def setup-options {
-  :init 'hxgm30.dice.components.testing.system/init
+  :init 'hxgm30.soc.components.testing.system/init
   :throw-errors true})
 
 (defn init

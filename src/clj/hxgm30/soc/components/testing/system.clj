@@ -1,7 +1,7 @@
-(ns hxgm30.dice.components.testing.system
+(ns hxgm30.soc.components.testing.system
   "A component system setup namespace for use in testing."
   (:require
-    [hxgm30.dice.components.core :as core]))
+    [hxgm30.soc.components.core :as core]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Initialization   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
