@@ -15,9 +15,9 @@
        ns
        "\u001B[35m]\u001B[33m λ\u001B[m=> "))
 
-(defproject hexagram30/dice "0.1.0-SNAPSHOT"
-  :description "An entropy manager, random number generator/seed tracker, and dice-roller for hexagram30 projects"
-  :url "https://github.com/hexagram30/dice"
+(defproject hexagram30/societatis "0.1.0-SNAPSHOT"
+  :description "Society generation and evolution for use by hexagram30 projects"
+  :url "https://github.com/hexagram30/societatis"
   :license {
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
@@ -26,9 +26,8 @@
   :dependencies [
     [clojusc/system-manager "0.3.0"]
     [clojusc/twig "0.4.0"]
-    [hexagram30/common "0.1.0-SNAPSHOT"]
-    [org.clojure/clojure "1.10.0"]
-    [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
+    [hexagram30/common "0.2.0-SNAPSHOT"]
+    [org.clojure/clojure "1.10.0"]]
   :plugins [
     [org.clojure/core.rrb-vector "0.0.13"]]
   :source-paths ["src/clj" "src/cljc"]
@@ -43,9 +42,9 @@
         [lein-shell "0.5.0"]
         [venantius/ultra "0.5.2"]]
       :source-paths ["dev-resources/src"]
-      :main hxgm30.dice.core
+      :main hxgm30.soc.core
       :repl-options {
-        :init-ns hxgm30.dice.repl
+        :init-ns hxgm30.soc.repl
         :prompt ~get-prompt
         :init ~(println (get-banner))}}
     :lint {
@@ -54,34 +53,10 @@
       :plugins [
         [jonase/eastwood "0.3.4"]
         [lein-ancient "0.6.15"]
-        [lein-bikeshed "0.5.1"]
-        [lein-kibit "0.1.6"]
-        [venantius/yagni "0.1.7"]]}
+        [lein-kibit "0.1.6"]]}
     :test {
       :plugins [
-        [lein-ltest "0.3.0"]]}
-    :server {
-      :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
-      :main hxgm30.dice.server}
-    :cljs {
-      :source-paths ["src/cljs"]
-      :dependencies [
-        [org.clojure/clojurescript "1.10.439"]]
-      :plugins [
-        [lein-cljsbuild "1.1.7"]
-        [lein-shell "0.5.0"]]
-      :cljsbuild {
-        :builds
-          [{:id "cli"
-            :source-paths ["src/cljs"]
-            :compiler {
-              :output-to "bin/roll"
-              :output-dir "target/cljs/hxgm30"
-              :optimizations :simple
-              :pretty-print true
-              :main hxgm30.dice.cli
-              :target :nodejs
-              :verbose true}}]}}}
+        [lein-ltest "0.3.0"]]}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"
