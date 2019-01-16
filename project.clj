@@ -21,12 +21,16 @@
   :license {
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :managed-dependencies [
+    [org.clojure/core.rrb-vector "0.0.13"]]
   :dependencies [
     [clojusc/system-manager "0.3.0"]
     [clojusc/twig "0.4.0"]
     [hexagram30/common "0.1.0-SNAPSHOT"]
     [org.clojure/clojure "1.10.0"]
     [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
+  :plugins [
+    [org.clojure/core.rrb-vector "0.0.13"]]
   :source-paths ["src/clj" "src/cljc"]
   :profiles {
     :ubercompile {
