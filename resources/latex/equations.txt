@@ -1,0 +1,3 @@
+Growth Rate:
+
+P(t)=\frac{K}{1 + \frac{K - P_0}{P_0}e^{-rt}}
