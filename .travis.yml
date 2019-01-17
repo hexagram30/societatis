@@ -1,17 +1,12 @@
-language:
-- clojure
+language: clojure
 git:
-  submodules:
-    - false
-before_install:
-- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-- git submodule update --init --recursive
-script:
-- lein build
+  submodules: false
+  depth: 5
+before_install: resources/scripts/switch-to-https-submodules.sh
+script: lein build
 jdk:
-- oraclejdk8
-- openjdk8
+  - oraclejdk8
+  - openjdk8
 notifications:
   slack:
-    rooms:
-    - hexagram30:LQkiA60LztFoZGZ0ojjbRA6m#cicd
+    rooms: hexagram30:LQkiA60LztFoZGZ0ojjbRA6m#cicd
