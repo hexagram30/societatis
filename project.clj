@@ -107,5 +107,6 @@
       ["ubercompile"]
       ["uberjar"]]
     "publish-docs" ["do"
+      ["docs"]
       ["shell" "resources/scripts/publish-docs.sh"]]})
 

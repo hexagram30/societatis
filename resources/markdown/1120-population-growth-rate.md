@@ -1,8 +1,14 @@
 #       • Growth Rate
 
+## Logistic Equation
+
+The value of the growth rate in the logistics equation depends upon the units chosen for the time variable _t_. It simply represents the rate at which growth occurs and determines how quickly carrying capacity is reached.
+
+
 ## Births
 
 TBD
+
 
 ## Deaths
 
