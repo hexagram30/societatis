@@ -518,6 +518,16 @@ pre.deps {
     color: #ccc;
 }
 
+.markdown a {
+    color: #690d0d;
+    text-decoration: underline;
+}
+
+.markdown a:hover {
+    color: #690d0d;
+    text-decoration: none;
+}
+
 .doc ul, .doc ol {
     padding-left: 30px;
 }
