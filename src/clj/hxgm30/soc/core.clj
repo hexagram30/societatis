@@ -1,6 +1,6 @@
 (ns hxgm30.soc.core
-  "This namespace is system-based; before making any function calls, a
-  system that includes a `:random` component needs to be started."
+  "This namespace is system-based; before making any function calls, the
+  system needs to be started."
   (:require
     [clojusc.system-manager.core :as system-manager]
     [clojusc.twig :as logger]

@@ -1,4 +1,5 @@
 (ns hxgm30.soc.repl
+  "Project development namespace."
   (:require
     [clojure.java.io :as io]
     [clojure.pprint :refer [pprint]]

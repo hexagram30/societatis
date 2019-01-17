@@ -1,4 +1,5 @@
 (ns hxgm30.soc.components.core
+  "System definitions for components."
   (:require
     [com.stuartsierra.component :as component]
     [hxgm30.common.components.config :as common-config]

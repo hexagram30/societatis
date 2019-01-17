@@ -1,4 +1,5 @@
 (ns hxgm30.soc.testing.system
+  "System setup for integration (and system) tests."
   (:require
     [clojusc.system-manager.core :as system-api]
     [clojusc.twig :as logger]
