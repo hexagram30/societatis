@@ -102,9 +102,11 @@
     "build" ["do"
       ["clean"]
       ["check-vers"]
-      ["lint"]
-      ["ltest" ":all"]
       ["ubercompile"]
+      ["lint"]
+      ["clean"]
+      ["ltest" ":all"]
+      ["docs"]
       ["uberjar"]]
     "publish-docs" ["do"
       ["docs"]
