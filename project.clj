@@ -30,7 +30,6 @@
     [org.clojure/clojure "1.10.0"]]
   :plugins [
     [org.clojure/core.rrb-vector "0.0.13"]]
-  :source-paths ["src/clj" "src/cljc"]
   :profiles {
     :ubercompile {
       :aot :all}
@@ -63,12 +62,15 @@
       :plugins [
         [lein-codox "0.10.5"]]
       :codox {
-        :project {:name "hexagram30/societatis"}
-        :themes [:hexagram30]
+        :project {
+          :name "hexagram30/societatis"}
+        :themes [
+          :hexagram30]
         :output-path "docs/current"
         :doc-paths ["resources/markdown"]
         :namespaces [#"^hxgm30\..*"]
-        :metadata {:doc/format :markdown}}}}
+        :metadata {
+          :doc/format :markdown}}}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"
