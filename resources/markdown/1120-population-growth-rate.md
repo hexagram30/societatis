@@ -15,6 +15,5 @@ Rough guesses at percentage of loss in high-risk societies:
 
 ## Resources
 
-[https://en.wikipedia.org/wiki/Gompertz%E2%80%93Makeham_law_of_mortality](https://en.wikipedia.org/wiki/Gompertz%E2%80%93Makeham_law_of_mortality)
-
-[https://en.wikipedia.org/wiki/Failure_rate#hazard_function](https://en.wikipedia.org/wiki/Failure_rate#hazard_function)
+* [https://en.wikipedia.org/wiki/Gompertz%E2%80%93Makeham_law_of_mortality](https://en.wikipedia.org/wiki/Gompertz%E2%80%93Makeham_law_of_mortality)
+* [https://en.wikipedia.org/wiki/Failure_rate#hazard_function](https://en.wikipedia.org/wiki/Failure_rate#hazard_function)
