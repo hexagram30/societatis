@@ -1,11 +1,4 @@
-# hexagram30/societatis
-
-*Society generation and evolution for use by hexagram30 projects*
-
-[![][logo]][logo-large]
-
-
-## About
+# About
 
 From the perspective of an interactive, story-driven, world-oriented
 adventure roll-playing game, the presence of a society is of critical
@@ -31,40 +24,3 @@ actual game-play, when I eventually logged in later in the day or week.
 First things first, though: a society needs to be created! So, to
 achieve the above desired usage, this project starts at the beginning
 ...
-
-
-## Methodology
-
-Further details on definitions, assumptions, equations, models, and the
-code the drives it are available here:
-
-* https://hexagram30.github.io/societatis/current/
-
-
-## Donating
-
-A donation account for supporting development on this project has been
-set up on Liberapay here:
-
-* [https://liberapay.com/hexagram30/donate](https://liberapay.com/hexagram30/donate)
-
-You can learn more about Liberapay on its [Wikipedia entry][libera-wiki]
-or on the service's ["About" page][libera-about].
-
-[libera-wiki]: https://en.wikipedia.org/wiki/Liberapay
-[libera-about]: https://liberapay.com/about/
-
-
-## License
-
-```
-Copyright © 2018-2019, Hexagram30 <hexagram30@cnbb.games>
-
-Apache License, Version 2.0
-```
-
-<!-- Named page links below: /-->
-
-[logo]: https://raw.githubusercontent.com/hexagram30/resources/master/branding/logo/h30-logo-2-long-with-text-x695.png
-[logo-large]: https://raw.githubusercontent.com/hexagram30/resources/master/branding/logo/h30-logo-2-long-with-text-x3440.png
-[comp-event]: https://github.com/hexagram30/hexagramMUSH/blob/master/src/hexagram30/mush/components/event.clj
