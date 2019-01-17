@@ -61,7 +61,7 @@
       :dependencies [
         [hexagram30/codox-theme "0.1.0-SNAPSHOT"]]
       :plugins [
-        [lein-codox "0.10.3"]]
+        [lein-codox "0.10.5"]]
       :codox {
         :project {:name "hexagram30/societatis"}
         :themes [:hexagram30]
@@ -103,5 +103,7 @@
       ["lint"]
       ["ltest" ":all"]
       ["ubercompile"]
-      ["uberjar"]]})
+      ["uberjar"]]
+    "publish-docs" ["do"
+      ["shell" "resources/scripts/publish-docs.sh"]]})
 
