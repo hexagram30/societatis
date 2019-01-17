@@ -528,6 +528,16 @@ pre.deps {
     text-decoration: none;
 }
 
+#content .topics a {
+    color: #690d0d;
+    text-decoration: none;
+}
+
+#content .topics a:hover {
+    color: #690d0d;
+    text-decoration: underline;
+}
+
 .doc ul, .doc ol {
     padding-left: 30px;
 }
