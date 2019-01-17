@@ -1,5 +1,8 @@
 #       • Carrying Capacity
 
-See the following:
+TBD
 
-* [https://en.wikipedia.org/wiki/Carrying_capacity#Factors_that_govern_carrying_capacity](https://en.wikipedia.org/wiki/Carrying_capacity#Factors_that_govern_carrying_capacity)
+
+## Resources
+
+[https://en.wikipedia.org/wiki/Carrying_capacity#Factors_that_govern_carrying_capacity](https://en.wikipedia.org/wiki/Carrying_capacity#Factors_that_govern_carrying_capacity)
