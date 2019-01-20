@@ -7,3 +7,4 @@ pom.*
 /.lein-*
 /.nrepl-port
 /bin
+.DS_Store
