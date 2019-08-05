@@ -13,7 +13,7 @@
   [ns]
   (str "\u001B[35m[\u001B[34m"
        ns
-       "\u001B[35m]\u001B[33m λ\u001B[m=> "))
+       "\u001B[35m]\u001B[33m\u001B[m=> "))
 
 (defproject hexagram30/societatis "0.1.0-SNAPSHOT"
   :description "Society generation and evolution for use by hexagram30 projects"
@@ -27,7 +27,10 @@
     [clojusc/system-manager "0.3.0"]
     [clojusc/twig "0.4.0"]
     [hexagram30/common "0.2.0-SNAPSHOT"]
-    [org.clojure/clojure "1.10.0"]]
+    [org.jgrapht/jgrapht-core "1.3.1"]
+    [org.jgrapht/jgrapht-io "1.3.1"]
+    [org.clojure/clojure "1.10.0"]
+    [rhizome "0.2.9"]]
   :plugins [
     [org.clojure/core.rrb-vector "0.0.13"]]
   :profiles {

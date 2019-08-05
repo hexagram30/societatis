@@ -10,6 +10,7 @@
     [com.stuartsierra.component :as component]
     [hxgm30.soc.components.config :as config]
     [hxgm30.soc.components.core]
+    [hxgm30.soc.network :as network]
     [trifl.java :refer [show-methods]])
   (:import
     (java.net URI)
