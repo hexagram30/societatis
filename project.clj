@@ -23,6 +23,7 @@
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :exclusions [
     ;; JAR file conflicts
+    [org.antlr/antlr4-runtime]
     [org.apache.commons/commons-lang3]
     [org.clojure/clojure]
     [org.clojure/clojurescript]
@@ -30,6 +31,7 @@
     [com.stuartsierra/component]]
   :dependencies [
     ;; JAR file conflicts
+    [org.antlr/antlr4-runtime "4.7.2"]
     [org.apache.commons/commons-lang3 "3.9"]
     [org.clojure/core.rrb-vector "0.0.14"]
     ;; Regular deps
@@ -40,9 +42,7 @@
     [hexagram30/common "0.2.0-SNAPSHOT"]
     [org.clojure/clojure "1.10.1"]
     [org.jgrapht/jgrapht-core "1.3.1"]
-    [org.jgrapht/jgrapht-io "1.3.1"]
-    [org.processing/core "3.3.7"]
-    [quil "3.0.0"]]
+    [org.jgrapht/jgrapht-io "1.3.1"]]
   :plugins [
     [org.clojure/core.rrb-vector "0.0.14"]]
   :profiles {
@@ -54,7 +54,7 @@
         [org.clojure/tools.namespace "0.3.1"]]
       :plugins [
         [lein-shell "0.5.0"]
-        [venantius/ultra "0.6.0"]]
+        [venantius/ultra "0.6.0" :exclusions [org.clojure/clojure]]]
       :source-paths ["dev-resources/src"]
       :main hxgm30.soc.core
       :repl-options {
@@ -65,9 +65,9 @@
       :source-paths ^:replace ["src"]
       :test-paths ^:replace []
       :plugins [
-        [jonase/eastwood "0.3.6"]
+        [jonase/eastwood "0.3.6" :exclusions [org.clojure/clojure]]
         [lein-ancient "0.6.15"]
-        [lein-kibit "0.1.7"]]}
+        [lein-kibit "0.1.7" :exclusions [org.clojure/clojure]]]}
     :test {
       :plugins [
         [lein-ltest "0.3.0"]]}

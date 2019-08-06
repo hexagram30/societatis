@@ -11,7 +11,7 @@
    (javax.imageio ImageIO)
    (org.jgrapht.generate BarabasiAlbertGraphGenerator)
    (org.jgrapht.graph DefaultEdge SimpleGraph)
-   (org.jgrapht.io DOTExporter)
+   (org.jgrapht.io DOTExporter DOTImporter EdgeProvider VertexProvider)
    (org.jgrapht.util SupplierUtil)))
 
 (def default-edge-supp (SupplierUtil/createDefaultEdgeSupplier))
@@ -21,6 +21,16 @@
   (reify Supplier
     (get [this]
       (swap! default-vertext-count inc))))
+
+(def default-vertex-prvdr
+  (reify VertexProvider
+    (buildVertex [this id _map]
+      id)))
+
+(def default-edge-prvdr
+  (reify EdgeProvider
+    (buildEdge [this _f _t _l _map]
+      (new DefaultEdge))))
 
 (defn empty-graph
   ""
@@ -72,18 +82,17 @@
     (with-open [w (io/writer file-path)]
       (.exportGraph exporter graph w))))
 
-(defn write-image
-  "Save the graph data as an image using GraphViz's `dot` program."
-  [graph img-file-path]
-  (let [split (string/split img-file-path #"\.")
-        file-type (last split)
-        dot-file-path (str (string/join "." (butlast split)) ".dot")]
-    (write graph dot-file-path)
-    (let [dot-str (slurp dot-file-path)
-          img (img/dot->image dot-str)]
-      (img/save-image img img-file-path))))
+(defn read
+  ([file-path]
+    (read file-path default-vertex-prvdr default-edge-prvdr))
+  ([file-path vertex-prvdr edge-prvdr]
+    (let [graph (empty-graph)
+          reader (io/reader file-path)
+          importer (new DOTImporter vertex-prvdr edge-prvdr)]
+      (.importGraph importer graph reader)
+      graph)))
 
-(defn graph->dot
+(defn jgrapht->dot
   ""
   [graph & [opts]]
   (let [w (new ByteArrayOutputStream)]
@@ -92,10 +101,18 @@
       (str w)
       w)))
 
+(defn write-image
+  "Save the graph data as an image using GraphViz's `dot` program."
+  [graph img-file-path & [opts]]
+  (-> graph
+      (jgrapht->dot {:as-string true})
+      (img/dot->image opts)
+      (img/save-image img-file-path)))
+
 (defn display-image
   ""
   [graph & [opts]]
   (-> graph
-      (graph->dot {:as-string true})
+      (jgrapht->dot {:as-string true})
       (img/dot->image opts)
       (viz/view-image)))
