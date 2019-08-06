@@ -3,11 +3,12 @@
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
    [clojure.string :as string]
+   [rhizome.img :as img]
    [rhizome.viz :as viz])
   (:import
-   (javax.imageio ImageIO)
-   (java.io IOException)
+   (java.io ByteArrayOutputStream)
    (java.util.function Supplier)
+   (javax.imageio ImageIO)
    (org.jgrapht.generate BarabasiAlbertGraphGenerator)
    (org.jgrapht.graph DefaultEdge SimpleGraph)
    (org.jgrapht.io DOTExporter)
@@ -15,6 +16,7 @@
 
 (def default-edge-supp (SupplierUtil/createDefaultEdgeSupplier))
 (def default-vertext-count (atom 0))
+
 (def default-vertex-supp
   (reify Supplier
     (get [this]
@@ -78,5 +80,22 @@
         dot-file-path (str (string/join "." (butlast split)) ".dot")]
     (write graph dot-file-path)
     (let [dot-str (slurp dot-file-path)
-          img (viz/dot->image dot-str)]
-      (viz/save-image img img-file-path))))
+          img (img/dot->image dot-str)]
+      (img/save-image img img-file-path))))
+
+(defn graph->dot
+  ""
+  [graph & [opts]]
+  (let [w (new ByteArrayOutputStream)]
+    (.exportGraph (new DOTExporter) graph w)
+    (if (:as-string opts)
+      (str w)
+      w)))
+
+(defn display-image
+  ""
+  [graph & [opts]]
+  (-> graph
+      (graph->dot {:as-string true})
+      (img/dot->image opts)
+      (viz/view-image)))

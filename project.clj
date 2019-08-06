@@ -21,28 +21,40 @@
   :license {
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
-  :managed-dependencies [
-    [org.clojure/core.rrb-vector "0.0.13"]]
+  :exclusions [
+    ;; JAR file conflicts
+    [org.apache.commons/commons-lang3]
+    [org.clojure/clojure]
+    [org.clojure/clojurescript]
+    [org.clojure/core.rrb-vector]
+    [com.stuartsierra/component]]
   :dependencies [
+    ;; JAR file conflicts
+    [org.apache.commons/commons-lang3 "3.9"]
+    [org.clojure/core.rrb-vector "0.0.14"]
+    ;; Regular deps
+    [clojusc/rhizome "0.3.0-SNAPSHOT"]
     [clojusc/system-manager "0.3.0"]
-    [clojusc/twig "0.4.0"]
+    [clojusc/twig "0.4.1"]
+    [com.stuartsierra/component "0.4.0"]
     [hexagram30/common "0.2.0-SNAPSHOT"]
+    [org.clojure/clojure "1.10.1"]
     [org.jgrapht/jgrapht-core "1.3.1"]
     [org.jgrapht/jgrapht-io "1.3.1"]
-    [org.clojure/clojure "1.10.0"]
-    [rhizome "0.2.9"]]
+    [org.processing/core "3.3.7"]
+    [quil "3.0.0"]]
   :plugins [
-    [org.clojure/core.rrb-vector "0.0.13"]]
+    [org.clojure/core.rrb-vector "0.0.14"]]
   :profiles {
     :ubercompile {
       :aot :all}
     :dev {
       :dependencies [
         [clojusc/trifl "0.4.2"]
-        [org.clojure/tools.namespace "0.2.11"]]
+        [org.clojure/tools.namespace "0.3.1"]]
       :plugins [
         [lein-shell "0.5.0"]
-        [venantius/ultra "0.5.2"]]
+        [venantius/ultra "0.6.0"]]
       :source-paths ["dev-resources/src"]
       :main hxgm30.soc.core
       :repl-options {
@@ -53,9 +65,9 @@
       :source-paths ^:replace ["src"]
       :test-paths ^:replace []
       :plugins [
-        [jonase/eastwood "0.3.4"]
+        [jonase/eastwood "0.3.6"]
         [lein-ancient "0.6.15"]
-        [lein-kibit "0.1.6"]]}
+        [lein-kibit "0.1.7"]]}
     :test {
       :plugins [
         [lein-ltest "0.3.0"]]}
@@ -63,7 +75,7 @@
       :dependencies [
         [hexagram30/codox-theme "0.1.0-SNAPSHOT"]]
       :plugins [
-        [lein-codox "0.10.5"]]
+        [lein-codox "0.10.7"]]
       :codox {
         :project {
           :name "hexagram30/societatis"}
