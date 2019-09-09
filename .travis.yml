@@ -5,8 +5,8 @@ git:
 before_install: resources/scripts/switch-to-https-submodules.sh
 script: lein build
 jdk:
-  - oraclejdk8
   - openjdk8
+  - openjdk11
 notifications:
   slack:
     rooms: hexagram30:LQkiA60LztFoZGZ0ojjbRA6m#cicd
