@@ -10,11 +10,13 @@
    [com.stuartsierra.component :as component]
    [hxgm30.soc.components.config :as config]
    [hxgm30.soc.components.core]
-   [hxgm30.soc.network :as network]
+   [hxgm30.soc.network.jgrapht :as jgrapht]
    [rhizome.img :as img]
    [rhizome.viz :as viz]
+   [taoensso.timbre :as log]
    [trifl.java :refer [show-methods]])
   (:import
+   (java.awt GraphicsEnvironment)
    (java.io ByteArrayOutputStream)
    (java.net URI)
    (java.nio.file Paths)
@@ -53,7 +55,9 @@
   ([node-count]
     (view-network node-count {:layout "twopi"}))
   ([node-count opts]
-    (network/display-image (network/random 1 node-count) opts)))
+    (if (GraphicsEnvironment/isHeadless)
+      (log/warn "No graphical environment; can't view network")
+      (jgrapht/display-image (jgrapht/random 1 node-count) opts)  )))
 
 ;; It is not always desired that a system be started up upon REPL loading.
 ;; Thus, we set the options and perform any global operations with init,

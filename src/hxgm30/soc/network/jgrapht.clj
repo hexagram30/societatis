@@ -1,18 +1,21 @@
-(ns hxgm30.soc.network
+(ns hxgm30.soc.network.jgrapht
   (:require
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
    [clojure.string :as string]
    [rhizome.img :as img]
-   [rhizome.viz :as viz])
+   [rhizome.viz :as viz]
+   [taoensso.timbre :as log])
   (:import
+   (java.awt GraphicsEnvironment)
    (java.io ByteArrayOutputStream)
    (java.util.function Supplier)
    (javax.imageio ImageIO)
    (org.jgrapht.generate BarabasiAlbertGraphGenerator)
    (org.jgrapht.graph DefaultEdge SimpleGraph)
    (org.jgrapht.io DOTExporter DOTImporter EdgeProvider VertexProvider)
-   (org.jgrapht.util SupplierUtil)))
+   (org.jgrapht.util SupplierUtil))
+  (:refer-clojure :exclude [read]))
 
 (def default-edge-supp (SupplierUtil/createDefaultEdgeSupplier))
 (def default-vertext-count (atom 0))
@@ -112,7 +115,9 @@
 (defn display-image
   ""
   [graph & [opts]]
-  (-> graph
-      (jgrapht->dot {:as-string true})
-      (img/dot->image opts)
-      (viz/view-image)))
+  (if (GraphicsEnvironment/isHeadless)
+    (log/warn "No graphical environment; can't display image")
+    (-> graph
+        (jgrapht->dot {:as-string true})
+        (img/dot->image opts)
+        (viz/view-image))))
