@@ -56,8 +56,9 @@
       :plugins [
         [lein-shell "0.5.0"]
         [venantius/ultra "0.6.0" :exclusions [org.clojure/clojure]]]
+      :main hxgm30.soc.core}
+    :gui {
       :source-paths ["dev-resources/src"]
-      :main hxgm30.soc.core
       :repl-options {
         :init-ns hxgm30.soc.repl
         :prompt ~get-prompt
@@ -91,7 +92,7 @@
     ;; Dev Aliases
     "repl" ["do"
       ["clean"]
-      ["repl"]]
+      ["with-profile" "+gui" "repl"]]
     "ubercompile" ["do"
       ["clean"]
       ["with-profile" "+ubercompile" "compile"]]

@@ -49,6 +49,17 @@
   (init)
   (startup))
 
+(defn display-image
+  ""
+  [graph & [opts]]
+  (if (GraphicsEnvironment/isHeadless)
+    (log/warn "No graphical environment; can't display image")
+    (do
+      (-> graph
+          (jgrapht->dot {:as-string true})
+          (img/dot->image opts)
+          (viz/view-image)))))
+
 (defn view-network
   ([]
     (view-network 25))
@@ -57,7 +68,7 @@
   ([node-count opts]
     (if (GraphicsEnvironment/isHeadless)
       (log/warn "No graphical environment; can't view network")
-      (jgrapht/display-image (jgrapht/random 1 node-count) opts)  )))
+      (display-image (jgrapht/random 1 node-count) opts)  )))
 
 ;; It is not always desired that a system be started up upon REPL loading.
 ;; Thus, we set the options and perform any global operations with init,

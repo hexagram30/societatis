@@ -3,11 +3,8 @@
    [clojure.java.io :as io]
    [clojure.java.shell :as shell]
    [clojure.string :as string]
-   [rhizome.img :as img]
-   [rhizome.viz :as viz]
-   [taoensso.timbre :as log])
+   [rhizome.img :as img])
   (:import
-   (java.awt GraphicsEnvironment)
    (java.io ByteArrayOutputStream)
    (java.util.function Supplier)
    (javax.imageio ImageIO)
@@ -111,13 +108,3 @@
       (jgrapht->dot {:as-string true})
       (img/dot->image opts)
       (img/save-image img-file-path)))
-
-(defn display-image
-  ""
-  [graph & [opts]]
-  (if (GraphicsEnvironment/isHeadless)
-    (log/warn "No graphical environment; can't display image")
-    (-> graph
-        (jgrapht->dot {:as-string true})
-        (img/dot->image opts)
-        (viz/view-image))))
