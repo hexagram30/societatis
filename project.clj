@@ -41,6 +41,7 @@
     [com.stuartsierra/component "0.4.0"]
     [hexagram30/common "0.2.0-SNAPSHOT"]
     [org.clojure/clojure "1.10.1"]
+    [org.gephi/graphstore "0.5.9"]
     [org.jgrapht/jgrapht-core "1.3.1"]
     [org.jgrapht/jgrapht-io "1.3.1"]]
   :plugins [
